@@ -8,6 +8,31 @@
     </head>
     <body>
         <?php
+        //Database connection information
+
+
+
+
+        function retrieveFromDB($data){
+            $query = "SELECT * FROM PKMN_NAMES where pkmnName like '%$data%' or pkmnid like '%$data%'";
+
+            $host = "localhost";
+            $username = "formagia_PKMNDBTest";
+            $password = "testdb123!";
+            $table = $username;
+
+            $conn = mysqli_connect($host, $username, $password, $table);
+
+            if(!$conn){
+                die("Connection failed: " . mysqli_connect_error());
+            }
+
+            $result_query = $conn->query($query);
+            $results = $result_query->fetch_assoc();
+
+            return $results['pkmnName'];
+
+        }
         function getResponse($link){
             //PHP get request
 
@@ -29,6 +54,8 @@
         
         if(!empty($_POST["pname"]) && empty($_POST["pid"])){
             $searchedName = strtolower($_POST["pname"]);
+
+            $searchedName = retrieveFromDB($searchedName);
             $pokemonName = "pokemon/$searchedName";
 
             $link = "https://pokeapi.co/api/v2/$pokemonName";
@@ -38,7 +65,8 @@
             $frontSprite = $responseArray[1];
         } elseif(!empty($_POST["pid"]) && empty($_POST["pname"])){
             $searchedID = $_POST["pid"];
-            $pokemonID = "pokemon/$searchedID";
+            $searchedName = retrieveFromDB($searchedID);
+            $pokemonID = "pokemon/$searchedName";
 
             $link = "https://pokeapi.co/api/v2/$pokemonID";
             $responseArray = getResponse($link);
