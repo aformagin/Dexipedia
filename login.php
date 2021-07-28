@@ -11,11 +11,17 @@ if (isset($_SESSION['id'])) {
 <html>
     <head>
         <title>Login/Register</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/pokeball.css">
+        <!-- Bootstrap javascript -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </head>
-    <body class="container-fluid">
+    <body class="poke-body">
     <!--This is the start of the Nav bar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light nav-min">
         <a class="navbar-brand" href="index.php">Team 21 Site</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -44,7 +50,7 @@ if (isset($_SESSION['id'])) {
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="favorites.php">Favourite Pokemon</a>
-                        <a class="dropdown-item" href="#">Pokedex</a>
+                        <a class="dropdown-item" href="dex.php">Pokedex</a>
                         <a class="dropdown-item" href="#">Pokemon Minigames</a>
                     </div>
                 </li>
@@ -78,15 +84,15 @@ if (isset($_SESSION['id'])) {
     }
     ?>
     <div class="container">
-        <div style="padding: 2%">
-            <form class="shadow-sm p-3 mb-5 bg-body rounded" action="loginv.php" method="post" style="margin-left: auto; margin-right: auto; max-width: max-content">
+        <div style="padding: 2%; min-width: min-content;">
+            <form class="shadow-sm p-3 mb-5 bg-body rounded bg-light center-max-content" action="loginv.php" method="post">
             <h2 style="text-align: center">Login</h2>
             <table>
                 <tr>
                     <td>
                         <label for="uname"><b>Email</b></label>
                     </td>
-                    <td style="padding-left: 2%">
+                    <td class="spacing">
                         <input class="form-control login" type="email" id="email" placeholder="Enter Email" name="email" required>
                     </td>
                 </tr>
@@ -94,20 +100,22 @@ if (isset($_SESSION['id'])) {
                     <td>
                         <label for="psw"><b>Password</b></label>
                     </td>
-                    <td style="padding-left: 2%">
+                    <td class="spacing">
                         <input class="form-control login" type="password" id="password" placeholder="Enter Password" name="password" required>
                     </td>
                 </tr>
             </table>
-                <button style="margin-left: auto; margin-right: auto;" class="btn btn-primary" type="submit">Login</button>
+                <div class="login-btn btn-div-center">
+                    <button class="btn btn-outline-primary" type="submit">Login</button>
+                </div>
             </form>
         </div> <!-- Log in div -->
         <!-- Register Div -->
-        <div style="padding: 2%">
-            <form class="shadow-sm p-3 mb-5 bg-body rounded" action="register.php" method="post" style="margin-left: auto; margin-right: auto; max-width: max-content">
+        <div style="padding: 2%; min-width: min-content;">
+            <form class="shadow-sm p-3 mb-5 bg-body rounded bg-light login-form center-max-content" action="register.php" method="post">
                 <h2 style="text-align: center">Register</h2>
-                <div>
-                    <button style="text-align: center" class="btn btn-primary" type="submit">Register</button>
+                <div class="login-btn btn-div-center">
+                    <button class="btn btn-outline-primary" type="submit">Register</button>
                 </div>
             </form>
         </div>

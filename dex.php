@@ -5,10 +5,16 @@
     <title>The Dex</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/pokeball.css">
+    <!-- Bootstrap javascript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="poke-body">
 <!--This is the start of the Nav bar-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light nav-min">
     <a class="navbar-brand" href="index.php">Team 21 Site</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,29 +71,33 @@
     </div>
 </nav>
 <!--End of Nav Bar-->
-<div class="shadow" style="max-width: max-content; margin-right: auto; margin-left: auto;">
-    <div class="container-fluid form-group">
-        <form action="pokemon.php" method="POST" style="padding: 10px;">
-            <table>
-                <tr>
-                    <td>
-                        <label class="form-control-plaintext">Pokemon Name: </label>
-                    </td>
-                    <td>
-                        <input class="form-control" type="text" name="pname">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label class="form-control-plaintext">Pokemon ID: </label>
-                    </td>
-                    <td>
-                        <input class="form-control" type="number" name="pid" min="1" max="898">
-                    </td>
-                </tr>
-            </table>
-            <input class="btn btn-success" type="submit" value="Search Dex">
-        </form>
+<div class="container">
+    <div class="center-max-content" style="padding: 2%">
+        <div class="container-fluid form-group">
+            <form class="shadow-sm p-3 mb-5 bg-body rounded bg-light" action="pokemon.php" method="POST" style="padding: 2%;">
+                <table>
+                    <tr>
+                        <td class="spacing">
+                            <label class="form-control-plaintext" style="font-weight: bold">Pokemon Name: </label>
+                        </td>
+                        <td>
+                            <input class="form-control" type="text" name="pname">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="spacing">
+                            <label class="form-control-plaintext" style="font-weight: bold">Pokemon ID: </label>
+                        </td>
+                        <td>
+                            <input class="form-control" type="number" name="pid" min="1" max="898">
+                        </td>
+                    </tr>
+                </table>
+                <div class="btn-div-center">
+                    <input class="btn btn-outline-primary" type="submit" value="Search Dex">
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 </body>
