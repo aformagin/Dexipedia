@@ -12,7 +12,7 @@ session_start();
     <body >
         <!--This is the start of the Nav bar-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="#">Team 21 Site</a>
+          <a class="navbar-brand" href="index.php">Team 21 Site</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -40,7 +40,7 @@ session_start();
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="favorites.php">Favourite Pokemon</a>
-                  <a class="dropdown-item" href="#">Pokedex</a>
+                  <a class="dropdown-item" href="dex.php">Pokedex</a>
                   <a class="dropdown-item" href="#">Pokemon Minigames</a>
                 </div>
               </li>

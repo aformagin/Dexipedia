@@ -2,7 +2,8 @@
 <?php
 //Database connection information
 
-function retrieveFromDB($data){
+function retrieveFromDB($data)
+{
     $query = "SELECT * FROM PKMN_NAMES where pkmnName like '%$data%' or pkmnid like '%$data%'";
 
     $host = "localhost";
@@ -12,7 +13,7 @@ function retrieveFromDB($data){
 
     $conn = mysqli_connect($host, $username, $password, $table);
 
-    if(!$conn){
+    if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
 
@@ -22,7 +23,9 @@ function retrieveFromDB($data){
     return $results['pkmnName'];
 
 }
-function getResponse($link){
+
+function getResponse($link)
+{
     //PHP get request
 
     $response = file_get_contents($link); //The response object is in the format of JSON
@@ -40,8 +43,9 @@ function getResponse($link){
     $dexNum = $jsonObj->id;
     return array($name, $front, $dexNum);
 }
+
 $input_error = false;
-if(!empty($_POST["pname"]) && empty($_POST["pid"])){
+if (!empty($_POST["pname"]) && empty($_POST["pid"])) {
     $searchedName = strtolower($_POST["pname"]);
 
     $searchedName = retrieveFromDB($searchedName);
@@ -52,7 +56,7 @@ if(!empty($_POST["pname"]) && empty($_POST["pid"])){
     $displayedName = ucfirst($responseArray[0]);
     $displayedDexNum = $responseArray[2];
     $frontSprite = $responseArray[1];
-} elseif(!empty($_POST["pid"]) && empty($_POST["pname"])){
+} elseif (!empty($_POST["pid"]) && empty($_POST["pname"])) {
     $searchedID = $_POST["pid"];
     $searchedName = retrieveFromDB($searchedID);
     $pokemonID = "pokemon/$searchedName";
@@ -68,48 +72,109 @@ if(!empty($_POST["pname"]) && empty($_POST["pid"])){
 }
 ?>
 <html>
-    <head>
-        <title>Pokemon Information: <?php echo $displayedName ?></title>
-        <!-- CSS only -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    </head>
-    <body>
-        <div class="container">
-            <?php
-            if($input_error)
-                echo '<div class="alert alert-warning" role="alert">Please fill out only ONE of the inputs!</div>';
-            ?>
-            <div class="container-fluid shadow" style="max-width: max-content; margin-right: auto; margin-left: auto; padding: 10px;">
-                <table class="table table-responsive" style="border: solid 2px;">
-                    <tr>
-                        <th class="table-dark" colspan=2><label></label><?php echo "#$displayedDexNum - $displayedName"; ?></th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label>Name</label>
-                        </td>
-                        <td>
-                            <?php  echo "<label>$displayedName</label>";?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label>Dex Number</label>
-                        </td>
-                        <td>
-                            <?php  echo "<label>$displayedDexNum</label>";?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label>Sprite</label>
-                        </td>
-                        <td>
-                            <?php echo "<label id='img'><img src=$frontSprite></label>";?>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </body>
+<head>
+    <title>Pokemon Information: <?php echo $displayedName ?></title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+
+<!--This is the start of the Nav bar-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.php">Team 21 Site</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <?php
+                // if the user is logged in we show the logout button, else we show the login/register buttons.
+                if (isset($_SESSION['id'])) {
+                    echo '<a class="nav-link" href="logout.php">Logout<span class="sr-only">(current)</span></a>';
+                } else {
+                    echo '<a class="nav-link" href="login.php">Login / Register<span class="sr-only">(current)</span></a>';
+                }
+                ?>
+            </li>
+
+            <!-- Dropdown menu within the nav bar -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Poke-Focused
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="favorites.php">Favourite Pokemon</a>
+                    <a class="dropdown-item" href="dex.php">Pokedex</a>
+                    <a class="dropdown-item" href="#">Pokemon Minigames</a>
+                </div>
+            </li>
+
+            <!-- Dropdown menu within the nav bar -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    More...
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">About</a>
+                    <a class="dropdown-item" href="#">Credit</a>
+                    <a class="dropdown-item" href="#">FeedBack</a>
+                </div>
+            </li>
+        </ul>
+        <!-- Search -->
+        <form action="#" method="POST" target="_self" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+<!--End of Nav Bar-->
+<div class="container">
+    <?php
+    if ($input_error)
+        echo '<div class="alert alert-warning" role="alert">Please fill out only ONE of the inputs!</div>';
+    ?>
+    <div class="container-fluid shadow"
+         style="max-width: max-content; margin-right: auto; margin-left: auto; padding: 10px;">
+        <table class="table table-responsive" style="border: solid 2px;">
+            <tr>
+                <th class="table-dark" colspan=2><label></label><?php echo "#$displayedDexNum - $displayedName"; ?></th>
+            </tr>
+            <tr>
+                <td>
+                    <label>Name</label>
+                </td>
+                <td>
+                    <?php echo "<label>$displayedName</label>"; ?>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Dex Number</label>
+                </td>
+                <td>
+                    <?php echo "<label>$displayedDexNum</label>"; ?>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Sprite</label>
+                </td>
+                <td>
+                    <?php echo "<label id='img'><img src=$frontSprite></label>"; ?>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
 </html>
