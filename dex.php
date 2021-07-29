@@ -12,6 +12,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="js/display.js"></script>
 </head>
 <body class="poke-body">
 <!--This is the start of the Nav bar-->
@@ -76,6 +78,7 @@
     <div style="padding: 2%; min-width: min-content;">
         <div class="container-fluid form-group center-max-content" >
             <form class="shadow-sm p-3 mb-5 bg-body rounded bg-light" action="pokemon.php" method="POST" style="padding: 2%;">
+                <h2 style="text-align: center">Search</h2>
                 <table>
                     <tr>
                         <td class="spacing">
@@ -98,6 +101,35 @@
                     <input class="btn btn-outline-primary" type="submit" value="Search Dex">
                 </div>
             </form>
+        </div>
+    </div>
+    <div class="center-max-content shadow p-3 mb-5 bg-body rounded bg-light" style="min-width: min-content;">
+        <h2 style="text-align: center; padding: 2%;">Browse 'em all!</h2>
+        <table>
+            <script>firstLoad()</script>
+            <tr>
+                <td id="display0"></td>
+                <td id="display1"></td>
+                <td id="display2"></td>
+            </tr>
+            <tr>
+                <td id="display3"></td>
+                <td id="display4"></td>
+                <td id="display5"></td>
+            </tr>
+        </table>
+
+        <div class="center-max-content">
+            <table>
+                <tr>
+                    <td>
+                        <button class="btn btn-outline-primary" onclick="displayPrev()">Prev</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-outline-primary"  onclick="displayNext()">Next</button>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
 </div>
