@@ -3,6 +3,7 @@
 <head>
     <!-- Meta information needs to go here-->
     <title>The Dex</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -15,7 +16,7 @@
 <body class="poke-body">
 <!--This is the start of the Nav bar-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light nav-min">
-    <a class="navbar-brand" href="index.php">Team 21 Site</a>
+    <a class="navbar-brand" href="index.php"><img src="imgs/dexipedia.png" style="max-height: 75px"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -72,8 +73,8 @@
 </nav>
 <!--End of Nav Bar-->
 <div class="container">
-    <div class="center-max-content" style="padding: 2%">
-        <div class="container-fluid form-group">
+    <div style="padding: 2%; min-width: min-content;">
+        <div class="container-fluid form-group center-max-content" >
             <form class="shadow-sm p-3 mb-5 bg-body rounded bg-light" action="pokemon.php" method="POST" style="padding: 2%;">
                 <table>
                     <tr>

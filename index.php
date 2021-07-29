@@ -17,7 +17,7 @@ session_start();
     <body class="poke-body">
         <!--This is the start of the Nav bar-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="index.php">Team 21 Site</a>
+            <a class="navbar-brand" href="index.php"><img src="imgs/dexipedia.png" style="max-height: 75px"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -73,10 +73,10 @@ session_start();
         <div class="spacing">
             <div class="container shadow-sm p-3 mb-5 bg-body rounded bg-light" style="padding: 2%;">
                 <description>
-                    <ul >
-                        <li ><h3>About Us</h3><hr><p>Our goal with the website<a href="#" >About Us</a></p></li>
-                        <li ><h3>Pokedex</h3><hr><p>Ouuu look at all the pokemon!!<a href="#" >Pokedex</a></p></li>
-                        <li ><h3>FeedBack</h3><hr><p>Lets us know what you think about our website!<a href="#" >Feedback</a></p></li>
+                    <ul style="list-style-type:none;">
+                        <li><h3>About Us</h3><hr><p>Learn a little bit about us: <a href="#" >About Us</a></p></li>
+                        <li><h3>Pokedex</h3><hr><p>Search for your favourites! <a href="dex.php" >Pokedex</a></p></li>
+                        <li><h3>FeedBack</h3><hr><p>Lets us know what you think about our website: <a href="#" >Feedback</a></p></li>
                     </ul>
                 </description>
             </div>
