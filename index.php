@@ -16,7 +16,7 @@ session_start();
     </head>
     <body class="poke-body">
         <!--This is the start of the Nav bar-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light nav-min page-contents">
             <a class="navbar-brand" href="index.php"><img src="imgs/dexipedia.png" style="max-height: 75px"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -71,7 +71,7 @@ session_start();
         </nav>
         <!--End of Nav Bar-->
         <div class="spacing">
-            <div class="container shadow-sm p-3 mb-5 bg-body rounded bg-light" style="padding: 2%;">
+            <div class="container page-contents shadow-sm p-3 mb-5 bg-body rounded bg-light" style="padding: 2%;">
                 <description>
                     <ul style="list-style-type:none;">
                         <li><h3>About Us</h3><hr><p>Our website is a Pokémon information catalogue based on the popular
