@@ -65,5 +65,35 @@
             </form>
         </div>
     </nav>
+
+    <h1>FEEDBACK</h1>
+    <h3>Let us know what you think about the website!</h3>
+    <!-- PAGE BODY-->
+    <form action="#" method="POST">
+        <div>
+            First Name:&emsp;<input type="text" name="fname"><br>
+            Last Name:&emsp;<input type="text" name="lname"><br>
+            Email:  &emsp;&emsp;&emsp;<input type="text" name="email"><br>
+        </div>
+        <br>
+        <div>
+            <!--Team Radio Buttons-->
+            <h5>Please Select the Team you Would Like your Feedback to be Sent too:</h5>
+            <input type="radio" id="designTeamRadio" name="team" value=0>
+            <label for="designTeamRadio">Web Design Team</label><br>
+            <input type="radio" id="techTeamRadio" name="team" value=1>
+            <label for="techTeamRadio">Technical Support Team</label><br>
+            <input type="radio" id="marketingTeamRadio" name="team" value=2>
+            <label for="marketingTeamRadio">Marketing Team</label><br>
+            <input type="radio" id="merchTeamRadio" name="team" value=3>
+            <label for="merchTeamRadio">Merchandise and Shipping Team</label><br>
+        </div>
+        <br>
+        <div>
+            <h5>Subject:</h5> <input type="text" name="subject"><br>
+            <h5>Content:</h5><textarea name="message" rows="4" cols="75"></textarea><br>
+            <input type="submit">
+        </div>
+    </form>
 </body>
 </html>
