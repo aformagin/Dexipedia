@@ -17,8 +17,9 @@
 </head>
 <body class="poke-body">
 <!--This is the start of the Nav bar-->
-<!--This is the start of the Nav bar-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light nav-min page-contents">
+
     <a class="navbar-brand" href="index.php"><img src="imgs/dexipedia.png" style="max-height: 75px"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -74,7 +75,7 @@
 <!--End of Nav Bar-->
 <div class="container">
     <div style="padding: 2%; min-width: min-content;">
-        <div class="container-fluid form-group center-max-content" >
+        <div class="container-fluid form-group center-max-content page-contents" >
             <form class="shadow-sm p-3 mb-5 bg-body rounded bg-light" action="pokemon.php" method="POST" style="padding: 2%;">
                 <h2 style="text-align: center">Search</h2>
                 <table>
@@ -101,7 +102,7 @@
             </form>
         </div>
     </div>
-    <div class="center-max-content shadow p-3 mb-5 bg-body rounded bg-light" style="min-width: min-content;">
+    <div class="center-max-content shadow p-3 mb-5 bg-body rounded bg-light ctn-trans" style="min-width: min-content;">
         <h2 style="text-align: center; padding: 2%;">Browse 'em all!</h2>
         <table>
             <script>firstLoad()</script>

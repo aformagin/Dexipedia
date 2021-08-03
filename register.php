@@ -28,8 +28,9 @@ if (isset($_SESSION['id'])) {
 </head>
 <body class="poke-body">
 <!--This is the start of the Nav bar-->
-<!--This is the start of the Nav bar-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light nav-min page-contents">
+
+
     <a class="navbar-brand" href="index.php"><img src="imgs/dexipedia.png" style="max-height: 75px"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -90,7 +91,7 @@ if (isset($_SESSION['id'])) {
 //    unset($_SESSION['error']); // clear the error in the $_SESSION array
 //}
 //?>
-<div class="container">
+<div class="container page-contents">
     <?php
     if (isset($_SESSION['error'])) {
         echo
