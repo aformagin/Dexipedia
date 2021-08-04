@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <?php
 //Database connection information
@@ -105,15 +108,21 @@ if (!empty($_POST["pname"]) && empty($_POST["pid"])) {
             <li class="nav-item active">
                 <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Account
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <?php
-                // if the user is logged in we show the logout button, else we show the login/register buttons.
-                if (isset($_SESSION['id'])) {
-                    echo '<a class="nav-link" href="logout.php">Logout<span class="sr-only">(current)</span></a>';
-                } else {
-                    echo '<a class="nav-link" href="login.php">Login / Register<span class="sr-only">(current)</span></a>';
-                }
+                    // if the user is logged in we show the logout button, else we show the login/register buttons.
+                    if (isset($_SESSION['id'])) {
+                        echo '<a class="dropdown-item" href="logout.php">Logout<span class="sr-only">(current)</span></a>';
+                        echo '<a class="dropdown-item" href="settings.php">Settings</a>';
+                    } else {
+                        echo '<a class="dropdown-item" href="login.php">Login / Register<span class="sr-only">(current)</span></a>';
+                    }
                 ?>
+                </div>
             </li>
 
             <!-- Dropdown menu within the nav bar -->
