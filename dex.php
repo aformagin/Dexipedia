@@ -1,8 +1,13 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
     <!-- Meta information needs to go here-->
-    <title>The Dex</title>
+    <title>Dexipedia - The Dex</title>
+        <link rel="icon" href="imgs/dexipedia.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -30,17 +35,22 @@
             <li class="nav-item active">
                 <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
-                <?php
-                // if the user is logged in we show the logout button, else we show the login/register buttons.
-                if (isset($_SESSION['id'])) {
-                    echo '<a class="nav-link" href="logout.php">Logout<span class="sr-only">(current)</span></a>';
-                } else {
-                    echo '<a class="nav-link" href="login.php">Login / Register<span class="sr-only">(current)</span></a>';
-                }
-                ?>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Account
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <?php
+                        // if the user is logged in we show the logout button, else we show the login/register buttons.
+                        if (isset($_SESSION['id'])) {
+                            echo '<a class="dropdown-item" href="logout.php">Logout<span class="sr-only">(current)</span></a>';
+                            echo '<a class="dropdown-item" href="settings.php">Settings</a>';
+                        } else {
+                            echo '<a class="dropdown-item" href="login.php">Login / Register<span class="sr-only">(current)</span></a>';
+                        }
+                    ?>
+                </div>
             </li>
-
             <!-- Dropdown menu within the nav bar -->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
