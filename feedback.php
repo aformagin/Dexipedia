@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<?php
+session_start();
+require_once 'database.php';
+?>
+
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,11 +74,28 @@
     <h3>Let us know what you think about the website!</h3>
     <!-- PAGE BODY-->
     <form action="#" method="POST">
-        <div>
-            First Name:&emsp;<input type="text" name="fname"><br>
-            Last Name:&emsp;<input type="text" name="lname"><br>
-            Email:  &emsp;&emsp;&emsp;<input type="text" name="email"><br>
-        </div>
+
+        <?php
+            // if the user is logged in we show the logout button, else we show the login/register buttons.
+            if (isset($_SESSION['id'])) {
+                $user_id = $_SESSION['id'];
+                $sql = "SELECT name, email FROM users WHERE id=$user_id;";
+                $user = $connection->query($sql)->fetch_assoc();
+                $name = $user["name"];
+                $email = $user["email"];
+                echo   '<div>
+                            Full Name:&emsp;<input type="text" name="fname" value="'.$name.'"><br>
+                            Email:  &emsp;&emsp;&emsp;<input type="text" name="email" value="'.$email.'"><br>
+                        </div>';
+
+            }else{
+                echo   '<div>
+                            Full Name:&emsp;<input type="text" name="fname"><br>
+                            Email:  &emsp;&emsp;&emsp;<input type="text" name="email"><br>
+                        </div>';
+            }
+        ?>
+
         <br>
         <div>
             <!--Team Radio Buttons-->
