@@ -1,8 +1,8 @@
 /* Login CSS I needed to make it look nicer*/
 .poke-body{
-    background: #d90000 url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/499feb72-586b-4374-b81b-06e0999db45e/ddyjwh7-892ace47-71a9-4e20-82a9-6950614a27e4.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzQ5OWZlYjcyLTU4NmItNDM3NC1iODFiLTA2ZTA5OTlkYjQ1ZVwvZGR5andoNy04OTJhY2U0Ny03MWE5LTRlMjAtODJhOS02OTUwNjE0YTI3ZTQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.amphC6COCru6xDBciVgKa8bvSjl5ZN-PkQY24D5QzQs");
     min-width: min-content;
-    /*opacity: 0.75;*/
+    background: #d90000 url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/499feb72-586b-4374-b81b-06e0999db45e/ddyjwh7-892ace47-71a9-4e20-82a9-6950614a27e4.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzQ5OWZlYjcyLTU4NmItNDM3NC1iODFiLTA2ZTA5OTlkYjQ1ZVwvZGR5andoNy04OTJhY2U0Ny03MWE5LTRlMjAtODJhOS02OTUwNjE0YTI3ZTQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.amphC6COCru6xDBciVgKa8bvSjl5ZN-PkQY24D5QzQs")  repeat;
+
 }
 
 .login-btn{
