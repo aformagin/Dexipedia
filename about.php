@@ -78,17 +78,26 @@ session_start();
             </div>
         </nav>
         <!--End of Nav Bar-->
+
         <div class="spacing">
             <div class="container page-contents shadow-sm p-3 mb-5 bg-body rounded bg-light" style="padding: 2%;">
                 <description>
-                    <ul style="list-style-type:none;">
-                        <li><h3>About Us</h3><hr><p>Our website is a Pokémon information catalogue based on the popular
-                        series of Pokémon games. We have created various pages such as Pokedex, Favourites, and FeedBack accessible to you through the navigation bar. These pages and more offer you information on the game mechanics and valuable information on each Pokémon. Our Pokedex is a great place to start to find out about some amazing Pokémon.<br> Learn a little bit more here: <a href="about.php" >About Us</a></p></li>
-                        <li><h3>Pokedex</h3><hr><p>Search for your favourites! <a href="dex.php" >Pokedex</a></p></li>
-                        <li><h3>FeedBack</h3><hr><p>Lets us know what you think about our website: <a href="feedback.php">Feedback</a></p></li>
+                  <ul style="list-style-type:none;">
+                      <li>
+                        <h3>About Us</h3><hr>
+                        <p>Our website is a Pokémon information catalogue based on the popular
+                          series of Pokémon games. We have created various pages such as Pokedex, Favourites, and FeedBack accessible to you through the navigation bar. These pages and more offer you information on the game mechanics and valuable information on each Pokémon. This is a student driven project that allowed us to expand on our working skills of PHP, HTML, MySQL, and more. Our team of 5 hardworking <i>University of Windsor</i> students was inspired by our shared interest of Pokémon to create a website for curious poke-lovers to discover.
+                        </p>
+                        <p>As our users find our site they are met with our beautiful <b>home page</b>. This holds our logo, a large navigation bar near the top of the screen, and a bit about our website. The navigation bar contains our home page, our Pokedex page, and our account section. In the account section users are able to register for an account if they would like. From there we have also enabled login and logout sections that change based on if the user has signed in.
+                        </p>
+                        <p>In our <b>Pokedex</b> page our users are presented with a large search box. This box has two searching options; Pokémon name or Pokémon Id number. With each option the result would end up the same. If the user searches for ‘bell’ the page will return the Pokémon ‘Bellsprout’ since it is the first Pokémon which contains ‘bell’ in its name. If the user searches for a Pokémon based on their Id number the result will be the exact Pokémon displayed.
+                        </p>
+                        <p>Users also have the option to browse through a paged catalog of all existing Pokémon. Located underneath our search option there is our <b>“Browse ‘em all!” header.</b> All included Pokémon are displayed in groups of six starting at Pokémon number one which is Bulbasaur. There are buttons at the bottom of each group of six allowing users to move forward and backwards between pages.
+                        </p>
+                      </li>
                     </ul>
                 </description>
             </div>
         </div>
-    </body>
+      </body>
 </html>
