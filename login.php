@@ -77,8 +77,8 @@ if (isset($_SESSION['id'])) {
                     More...
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">About</a>
-                    <a class="dropdown-item" href="#">Credit</a>
+                  <a class="dropdown-item" href="about.php">About</a>
+                  <a class="dropdown-item" href="credit.php">Credit</a>
                     <a class="dropdown-item" href="feedback.php">FeedBack</a>
                 </div>
             </li>

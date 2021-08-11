@@ -64,8 +64,8 @@ session_start();
                             More...
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">About</a>
-                            <a class="dropdown-item" href="#">Credit</a>
+                            <a class="dropdown-item" href="about.php">About</a>
+                            <a class="dropdown-item" href="credit.php">Credit</a>
                             <a class="dropdown-item" href="feedback.php">FeedBack</a>
                         </div>
                     </li>
@@ -86,7 +86,7 @@ session_start();
                                 series of Pokémon games. On the website, we will have various pages that will offer the
                                 user, information on the game mechanics and valuable information on each Pokémon.
                                 Some of these pages will include a randomized guessing games and display the statistics
-                                for many of the Pokémon!  Learn a little bit about us: <a href="#" >About Us</a></p></li>
+                                for many of the Pokémon!  Learn a little bit about us: <a href="about.php" >About Us</a></p></li>
                         <li><h3>Pokedex</h3><hr><p>Search for your favourites! <a href="dex.php" >Pokedex</a></p></li>
                         <li><h3>FeedBack</h3><hr><p>Lets us know what you think about our website: <a href="feedback.php" >Feedback</a></p></li>
                     </ul>
