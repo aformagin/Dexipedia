@@ -1,4 +1,5 @@
 <?php
+require_once 'database.php';
 session_start();
 if (!isset($_SESSION['id'])) {
     $_SESSION['error'] = 'Please login or register to access the favorites page';
@@ -86,8 +87,112 @@ if (!isset($_SESSION['id'])) {
             </div>
         </nav>
         <!--End of Nav Bar-->
-        <div>
-            <p>The same way that pokedex work, but instead of printing all pokemon print only the user favorite pokemon</p>
+        <div class="container page-contents">
+        <div class="shadow-sm p-3 mb-5 bg-body rounded bg-light center-max-content" style="margin-top: 2%;">
+
+        <?php
+            function retrieveFromDB($data)
+            {
+                $query = "SELECT * FROM PKMN_NAMES where pkmnName like '%$data%' or pkmnid like '%$data%'";
+        
+                $host = "localhost";
+                $username = "formagia_PKMNDBTest";
+                $password = "testdb123!";
+                $table = $username;
+        
+                $conn = mysqli_connect($host, $username, $password, $table);
+        
+                if (!$conn) {
+                    die("Connection failed: " . mysqli_connect_error());
+                }
+        
+                $result_query = $conn->query($query);
+                $results = $result_query->fetch_assoc();
+        
+                return $results['pkmnName'];
+        
+            }
+        
+            function getResponse($link)
+            {
+                //PHP get request
+        
+                $response = file_get_contents($link); //The response object is in the format of JSON
+        
+                $jsonObj = json_decode($response); //Decode the JSON string so it is workable in PHP
+        
+                $name = $jsonObj->name; //Getting the name works
+        
+                // Gets the front sprite from the jsonObject
+                $pics = $jsonObj->sprites; //Gets the pictures object from the jsonobject
+                $front = $pics->front_default; //gets the front_default sprite
+        
+        
+                // Gets the id (which is the international dex number) from the jsonResponseObject
+                $dexNum = $jsonObj->id;
+                return array($name, $front, $dexNum);
+            }
+    
+            $user_id = $_SESSION['id'];
+            $result = $connection->query("SELECT pkmnId  FROM favorites WHERE id=$user_id");
+            if (mysqli_num_rows($result) == 0) {
+	            echo "<h2> Nothing Saved </h2>";
+            }
+            else {
+                $sql = "SELECT pkmnId FROM favorites WHERE id=$user_id";
+                $res=$connection->query($sql);
+                while($row=$res->fetch_assoc()){
+                    $searchedID = $row['pkmnId'];
+                    $searchedName = retrieveFromDB($searchedID);
+                    $pokemonID = "pokemon/$searchedName";
+
+                    $link = "https://pokeapi.co/api/v2/$pokemonID";
+                    $responseArray = getResponse($link);
+
+                    $displayedName = ucfirst($responseArray[0]);
+                    $displayedDexNum = $responseArray[2];
+                    $frontSprite = $responseArray[1];
+                
+                echo '<table class="table table-responsive shadow p-3 mb-5 bg-body" style="border: solid 2px; border-color: black;">
+                    <tr>
+                        <th class="table-dark" colspan=2><label></label>#'.$displayedDexNum.' - '.$displayedName.'</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Name</label>
+                        </td>
+                        <td>
+                            <label>'.$displayedName.'</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Dex Number</label>
+                        </td>
+                        <td>
+                            <label>'.$displayedDexNum.'</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Sprite</label>
+                        </td>
+                        <td>
+                            <label id=img><img src='.$frontSprite.'></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <form action="delete.php" method="POST" target="_self">
+                                <button class="save" name="pkmnId" value='.$displayedDexNum.'><h2>Unfavorite</h2></button>
+                            </form>
+                        </td>
+                    </tr>
+                </table>';
+            }
+        }
+        ?>
+        </div>
         </div>
     </body>
 </html>
