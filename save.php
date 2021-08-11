@@ -25,7 +25,7 @@ if (!isset($_SESSION['id'])) {
 $pkmnId = $connection->real_escape_string($_POST['pkmnId']);
 $user_id = $_SESSION['id'];
 
-
+//This is to prevent duplicate saved pokemon, if the user has saved the pokemon previously check to see if there is a row that has its id.
 $result = $connection->query("SELECT pkmnId FROM favorites WHERE pkmnId LIKE $pkmnId AND id=$user_id");
 if (mysqli_num_rows($result) > 0) {
     header("Location: favorites.php");

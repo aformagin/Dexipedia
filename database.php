@@ -1,5 +1,5 @@
 <?php
-
+/*This file is used throught the website. Instead of having to rewrite the connection to the database multiple times, we decided to define it here so we can use with the require once function*/
 define('DB_SERVER', 'localhost');
 define('DB_PORT', '3306');
 define('DB_USERNAME', 'velizcaa_pokemonWeb');

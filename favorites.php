@@ -1,6 +1,8 @@
 <?php
+//Call the file with the database info
 require_once 'database.php';
 session_start();
+//Start a session and check if the user is logged in, if not send them to the login page with an error message
 if (!isset($_SESSION['id'])) {
     $_SESSION['error'] = 'Please login or register to access the favorites page';
     header("Location: login.php");
@@ -89,8 +91,9 @@ if (!isset($_SESSION['id'])) {
         <!--End of Nav Bar-->
         <div class="container page-contents">
         <div class="shadow-sm p-3 mb-5 bg-body rounded bg-light center-max-content" style="margin-top: 2%;">
-
+        <!--Open the divs where the pokemon will be placed -->
         <?php
+            //Function to retrieve data from the database. It is used to make sure the pokemon name is correct
             function retrieveFromDB($data)
             {
                 $query = "SELECT * FROM PKMN_NAMES where pkmnName like '%$data%' or pkmnid like '%$data%'";
@@ -132,12 +135,15 @@ if (!isset($_SESSION['id'])) {
                 $dexNum = $jsonObj->id;
                 return array($name, $front, $dexNum);
             }
-    
+
+            //Get the user ID
             $user_id = $_SESSION['id'];
+            //Check if the user has any saved pokemon on their file
             $result = $connection->query("SELECT pkmnId  FROM favorites WHERE id=$user_id");
             if (mysqli_num_rows($result) == 0) {
 	            echo "<h2> Nothing Saved </h2>";
             }
+            //If the user has saved pokemon, create a table with the pokemon's name, id, and sprite
             else {
                 $sql = "SELECT pkmnId FROM favorites WHERE id=$user_id";
                 $res=$connection->query($sql);

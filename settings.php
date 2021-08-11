@@ -1,12 +1,15 @@
 <?php
+//Call the file with the database info
 require_once 'database.php';
 session_start();
+//Start a session and check if the user is logged in, if not send them to the login page with an error message
 if (!isset($_SESSION['id'])) {
-    $_SESSION['error'] = 'Please login or register to access the favorites page';
+    $_SESSION['error'] = 'Please login or register to access the settings page';
     header("Location: login.php");
     exit();
 }
 
+//Used to delete the user from the user table
 if(isset($_POST['delete_user'])) {
     $user_id = $_SESSION['id'];
     $connection->query("DELETE FROM users WHERE id = '$user_id'");
