@@ -191,6 +191,15 @@ if (!empty($_POST["pname"]) && empty($_POST["pid"])) {
                     <?php echo "<label id='img'><img src=$frontSprite></label>"; ?>
                 </td>
             </tr>
+            <tr>
+                <td>
+                    <form action="save.php" method="POST" target="_self">
+                    	<?php
+                            echo  "<button class='save' name='pkmnId' value=". $displayedDexNum. "><h2>Favorite</h2></button>";
+                        ?>
+                    </form>
+                </td>
+            </tr>
         </table>
     </div>
 </div>
