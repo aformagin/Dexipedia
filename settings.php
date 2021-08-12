@@ -14,14 +14,17 @@ if(isset($_POST['delete_user'])) {
     header("Location: index.php");
     exit();
 }
-
 ?>
 
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Dexipedia, a student driven project">
+    <meta name="keywords" content="HTML, PHP, CSS, JavaScript, Bootstrap">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Dexipedia - Account Settings</title>
+
         <link rel="icon" href="imgs/dexipedia.png">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="css/pokeball.css">
