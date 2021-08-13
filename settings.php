@@ -17,6 +17,20 @@ if(isset($_POST['delete_user'])) {
     header("Location: index.php");
     exit();
 }
+
+//Used to change the users color shceme preferrence
+if(isset($_POST['colorChoice'])) {
+    $user_id = $_SESSION['id'];
+    $choice = $_POST['colorlist'];
+    $result = $connection->query("SELECT colorScheme FROM colorChoice WHERE id=$user_id");
+    //If the user has already selected a color shceme, update the value instead of trying ot insert
+    if (mysqli_num_rows($result) > 0) {
+        $connection->query("UPDATE colorChoice SET colorScheme=$choice WHERE id=$user_id");
+        header("Location: settings.php");
+    }   
+    $connection->query("INSERT INTO colorChoice (`id`, `colorScheme`) VALUES ('$user_id', '$choice')");
+    header("Location: settings.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +44,31 @@ if(isset($_POST['delete_user'])) {
 
         <link rel="icon" href="imgs/dexipedia.png">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/pokeball.css">
+        <?php
+            if (isset($_SESSION['id'])) {
+                $user_id = $_SESSION['id'];
+                $sql = "SELECT colorScheme FROM colorChoice WHERE id=$user_id";
+                $res=$connection->query($sql);
+                $row=$res->fetch_assoc();
+                $value = $row['colorScheme'];
+
+                if($value == 2) {
+                    echo '<link rel="stylesheet" href="css/pkmn.css">';
+                }
+                elseif($value == 3) {
+                    echo '<link rel="stylesheet" href="css/pkmnpurp.css">';
+                }
+                elseif($value == 4) {
+                    echo '<link rel="stylesheet" href="css/pkmntan.css">';
+                }
+                else {
+                    echo '<link rel="stylesheet" href="css/pokeball.css">';
+                }
+            }
+            else {
+                echo '<link rel="stylesheet" href="css/pokeball.css">';
+            }
+        ?>
         <!-- Bootstrap javascript -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -100,8 +138,17 @@ if(isset($_POST['delete_user'])) {
         </nav>
         <!--End of Nav Bar-->
         <div class="spacing">
-            <p>More to come, just waiting on others</p>
             <div class="container page-contents shadow-sm p-3 mb-5 bg-body rounded bg-light" style="padding: 2%;">
+                <form method="post" action="">
+                    <label for="colors">Choose a car:</label>
+                    <select name="colorlist" id="color">
+                        <option value="1">Poke Ball</option>
+                        <option value="2">Snorlax</option>
+                        <option value="3">Ghastly</option>
+                        <option value="4">Pikachu and Eevee</option>
+                    </select>
+                    <button type="submit" name="colorChoice">Select</button>
+                </form>
                 <form method="post" action="">
                     <button type="submit" name="delete_user">Delete Account</button>
                 </form>
