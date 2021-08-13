@@ -49,7 +49,7 @@ session_start();
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="poke-body">
 <!--This is the start of the Nav bar-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="index.php"><img src="imgs/dexipedia.png" style="max-height: 75px"></a>
@@ -114,52 +114,83 @@ session_start();
         </form>
     </div>
 </nav>
+<div style="padding: 2%; min-width: min-content;">
+    <!-- PAGE BODY-->
+    <form action="#" method="POST" class="shadow-sm p-3 mb-5 bg-body rounded bg-light center-max-content">
+        <div style="text-align: center">
+            <h2>FEEDBACK</h2>
+            <h3>Let us know what you think about the website!</h3>
+        </div>
 
-<h1>FEEDBACK</h1>
-<h3>Let us know what you think about the website!</h3>
-<!-- PAGE BODY-->
-<form action="#" method="POST">
+        <table>
+            <?php
+            // if the user is logged in we show the logout button, else we show the login/register buttons.
+            if (isset($_SESSION['id'])) {
+                $user_id = $_SESSION['id'];
+                $sql = "SELECT name, email FROM users WHERE id=$user_id;";
+                $user = $connection->query($sql)->fetch_assoc();
+                $name = $user["name"];
+                $email = $user["email"];
+                echo '<tr>
+                <td>
+                    <label>Full Name</label>
+                </td>
+                <td>
+                    <input type="text" name="fname" value="' . $name . '">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Email</label>
+                </td>
+                <td>
+                   <input type="text" name="email" value="' . $email . '"> 
+                </td>
+            </tr>';
 
-    <?php
-    // if the user is logged in we show the logout button, else we show the login/register buttons.
-    if (isset($_SESSION['id'])) {
-        $user_id = $_SESSION['id'];
-        $sql = "SELECT name, email FROM users WHERE id=$user_id;";
-        $user = $connection->query($sql)->fetch_assoc();
-        $name = $user["name"];
-        $email = $user["email"];
-        echo '<div>
-                            Full Name:&emsp;<input type="text" name="fname" value="' . $name . '"><br>
-                            Email:  &emsp;&emsp;&emsp;<input type="text" name="email" value="' . $email . '"><br>
-                        </div>';
+            } else {
+                echo '<tr>
+                <td>
+                    <label>Full Name</label>
+                </td>
+                <td>
+                    <input type="text" name="fname">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Email</label>
+                </td>
+                <td>
+                    <input type="text" name="email">
+                </td>
+            </tr>';
+            }
+            ?>
+        </table>
 
-    } else {
-        echo '<div>
-                            Full Name:&emsp;<input type="text" name="fname"><br>
-                            Email:  &emsp;&emsp;&emsp;<input type="text" name="email"><br>
-                        </div>';
-    }
-    ?>
 
-    <br>
-    <div>
-        <!--Team Radio Buttons-->
-        <h5>Please Select the Team you Would Like your Feedback to be Sent too:</h5>
-        <input type="radio" id="designTeamRadio" name="team" value=0>
-        <label for="designTeamRadio">Web Design Team</label><br>
-        <input type="radio" id="techTeamRadio" name="team" value=1>
-        <label for="techTeamRadio">Technical Support Team</label><br>
-        <input type="radio" id="marketingTeamRadio" name="team" value=2>
-        <label for="marketingTeamRadio">Marketing Team</label><br>
-        <input type="radio" id="merchTeamRadio" name="team" value=3>
-        <label for="merchTeamRadio">Merchandise and Shipping Team</label><br>
-    </div>
-    <br>
-    <div>
-        <h5>Subject:</h5> <input type="text" name="subject"><br>
-        <h5>Content:</h5><textarea name="message" rows="4" cols="75"></textarea><br>
-        <input type="submit">
-    </div>
-</form>
+        <br>
+        <div>
+            <!--Team Radio Buttons-->
+            <h5>Please Select the Team you Would Like your Feedback to be Sent too:</h5>
+            <input type="radio" id="designTeamRadio" name="team" value=0>
+            <label for="designTeamRadio">Web Design Team</label><br>
+            <input type="radio" id="techTeamRadio" name="team" value=1>
+            <label for="techTeamRadio">Technical Support Team</label><br>
+            <input type="radio" id="marketingTeamRadio" name="team" value=2>
+            <label for="marketingTeamRadio">Marketing Team</label><br>
+            <input type="radio" id="merchTeamRadio" name="team" value=3>
+            <label for="merchTeamRadio">Merchandise and Shipping Team</label><br>
+        </div>
+        <br>
+        <div>
+            <h5>Subject:</h5> <input type="text" name="subject"><br>
+            <h5>Content:</h5><textarea name="message" rows="4" cols="75"></textarea><br>
+            <input class="btn btn-outline-success" type="submit">
+        </div>
+    </form>
+</div>
+
 </body>
 </html>

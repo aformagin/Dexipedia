@@ -139,18 +139,35 @@ if(isset($_POST['colorChoice'])) {
         <!--End of Nav Bar-->
         <div class="spacing">
             <div class="container page-contents shadow-sm p-3 mb-5 bg-body rounded bg-light" style="padding: 2%;">
-                <form method="post" action="">
-                    <label for="colors">Choose a car:</label>
-                    <select name="colorlist" id="color">
-                        <option value="1">Poke Ball</option>
-                        <option value="2">Snorlax</option>
-                        <option value="3">Ghastly</option>
-                        <option value="4">Pikachu and Eevee</option>
-                    </select>
-                    <button type="submit" name="colorChoice">Select</button>
-                </form>
-                <form method="post" action="">
-                    <button type="submit" name="delete_user">Delete Account</button>
+                <div style="text-align: center">
+                    <h3>Change your account theme:</h3>
+                </div>
+                <div class="btn-div-center">
+                    <form method="post" action="">
+                        <label for="colors">Choose a theme:</label>
+                        <select name="colorlist" id="color">
+                            <option value="1">Poke Ball</option>
+                            <option value="2">Snorlax</option>
+                            <option value="3">Ghastly</option>
+                            <option value="4">Pikachu and Eevee</option>
+                        </select>
+                        <button class="btn btn-primary" type="submit" name="colorChoice">Select</button>
+                    </form>
+                </div>
+
+                <form style="margin-top: 1%" method="post" action="">
+                    <div style="text-align: center">
+                        <h3>Delete your account below</h3>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>WARNING</strong> This action can <strong>NOT</strong> be undone
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="btn-div-center">
+                        <button class="btn btn-danger" type="submit" name="delete_user"  style="font-weight: bolder">Delete Account</button>
+                    </div>
                 </form>
             </div>
         </div>
