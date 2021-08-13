@@ -220,12 +220,14 @@ if (!empty($_POST["pname"]) && empty($_POST["pid"])) {
                 </td>
             </tr>
             <tr>
-                <td>
-                    <form action="save.php" method="POST" target="_self">
-                    	<?php
-                            echo  "<button class='save' name='pkmnId' value=". $displayedDexNum. "><h2>Favorite</h2></button>";
-                        ?>
-                    </form>
+                <td colspan="2">
+                    <div class="btn-div-center">
+                        <form action="save.php" method="POST" target="_self">
+                            <?php
+                            echo  "<button class='save btn btn-primary' name='pkmnId' value=". $displayedDexNum. "><object data='imgs/white_star.svg'></object></button>";
+                            ?>
+                        </form>
+                    </div>
                 </td>
             </tr>
         </table>
