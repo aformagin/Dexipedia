@@ -224,7 +224,7 @@ if (!empty($_POST["pname"]) && empty($_POST["pid"])) {
                     <div class="btn-div-center">
                         <form action="save.php" method="POST" target="_self">
                             <?php
-                            echo  "<button class='save btn btn-primary' name='pkmnId' value=". $displayedDexNum. ">Favorite</button>";
+                            echo  "<button class='save btn btn-primary' name='pkmnId' value=". $displayedDexNum. "><object data='imgs/white_star.svg'></object></button>";
                             ?>
                         </form>
                     </div>

@@ -225,7 +225,7 @@ if (!isset($_SESSION['id'])) {
                         <td colspan="2">
                             <div class="btn-div-center">
                                 <form  action="delete.php" method="POST" target="_self">
-                                    <button class="btn btn-warning" name="pkmnId" value=' . $displayedDexNum . '>Unfavorite</button>
+                                    <button class="btn btn-warning" name="pkmnId" value=' . $displayedDexNum . '><object data="imgs/nofill_star.svg"></object></button>
                                 </form>
                             </div>
                         </td>
