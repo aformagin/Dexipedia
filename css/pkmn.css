@@ -1,1 +1,43 @@
-<!-- Empty CSS file that can be used -->
+/* Yellow Option with pikachu*/
+/*
+.poke-body{
+    min-width: min-content;
+	background: url("https://cdn.pixabay.com/photo/2016/08/17/13/49/pokemon-1600481_1280.jpg");
+    background-position: center;
+}
+*/
+
+/*snorlax greenish blue option*/
+.poke-body{
+    min-width: min-content;
+	background: #43625c url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/fa4363e2-6a2e-4c41-8dd1-4ec83cdc52ec/dd7qz5v-dc229f4b-5624-4316-9e1c-eb4095f5737e.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2ZhNDM2M2UyLTZhMmUtNGM0MS04ZGQxLTRlYzgzY2RjNTJlY1wvZGQ3cXo1di1kYzIyOWY0Yi01NjI0LTQzMTYtOWUxYy1lYjQwOTVmNTczN2UucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.IBhIbqEOg2jSDHQKEbBmE1gnTrV4SIsCN8hkyqRCWSc") no-repeat;
+    background-position: center;
+}
+
+.login-btn{
+    padding: 2%;
+}
+.spacing {
+    padding: 2%;
+}
+.center-max-content{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: max-content;
+}
+.btn-div-center{
+    margin-left: auto;
+    margin-right: auto;
+    width: max-content;
+}
+
+.ctn-trans{
+    opacity: 0.75;
+}
+.ctn-contents{
+    opacity: 1;
+}
+/* Nav CSS */
+.nav-min{
+    min-width: min-content;
+}

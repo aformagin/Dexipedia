@@ -1,0 +1,35 @@
+
+/* Tan pikachu and eevee*/
+.poke-body{
+    min-width: min-content;
+	background: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b11d6f25-5c81-4d42-a81a-6e5100ea42ee/dcsd5e7-0583eefd-0e03-492c-b57d-41da67c59367.png/v1/fill/w_444,h_250,q_70,strp/pokemon_let_s_go_pikachu_and_eevee__by_pikapika51_dcsd5e7-250t.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjE2MCIsInBhdGgiOiJcL2ZcL2IxMWQ2ZjI1LTVjODEtNGQ0Mi1hODFhLTZlNTEwMGVhNDJlZVwvZGNzZDVlNy0wNTgzZWVmZC0wZTAzLTQ5MmMtYjU3ZC00MWRhNjdjNTkzNjcucG5nIiwid2lkdGgiOiI8PTM4NDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.WFGguldqnIj6wqA9vYVJQTbt8Qf9-7Oxo18lWQZ2KE0") repeat;
+    background-position: center;
+}
+
+.login-btn{
+    padding: 2%;
+}
+.spacing {
+    padding: 2%;
+}
+.center-max-content{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: max-content;
+}
+.btn-div-center{
+    margin-left: auto;
+    margin-right: auto;
+    width: max-content;
+}
+
+.ctn-trans{
+    opacity: 0.75;
+}
+.ctn-contents{
+    opacity: 1;
+}
+/* Nav CSS */
+.nav-min{
+    min-width: min-content;
+}
