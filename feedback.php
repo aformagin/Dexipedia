@@ -81,6 +81,7 @@ session_start();
                 </div>
             </li>
 
+
             <!-- Dropdown menu within the nav bar -->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -116,7 +117,8 @@ session_start();
 </nav>
 <div style="padding: 2%; min-width: min-content;">
     <!-- PAGE BODY-->
-    <form action="#" method="POST" class="shadow-sm p-3 mb-5 bg-body rounded bg-light center-max-content">
+
+    <form action="&feedback.php" method="POST" class="shadow-sm p-3 mb-5 bg-body rounded bg-light center-max-content">
         <div style="text-align: center">
             <h2>FEEDBACK</h2>
             <h3>Let us know what you think about the website!</h3>
