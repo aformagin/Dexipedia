@@ -124,7 +124,7 @@ if (!empty($_POST["pname"]) && empty($_POST["pid"])) {
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="favorites.php">Favourite Pokemon</a>
                     <a class="dropdown-item" href="dex.php">Pokedex</a>
-                    <a class="dropdown-item" href="#">Pokemon Minigames</a>
+                    <a class="dropdown-item" href="minigame.php">Pokemon Minigames</a>
                 </div>
             </li>
 

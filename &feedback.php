@@ -33,7 +33,7 @@ require_once 'database.php';
                     if (isset($_SESSION['id'])) {
                         echo '<a class="nav-link" href="logout.php">Logout<span class="sr-only">(current)</span></a>';
                     } else {
-                    echo '<a class="nav-link" href="login.php">Login / Register<span class="sr-only">(current)</span></a>';
+                        echo '<a class="nav-link" href="login.php">Login / Register<span class="sr-only">(current)</span></a>';
                     }
                     ?>
                 </li>
@@ -71,50 +71,7 @@ require_once 'database.php';
     </nav>
 
     <h1>FEEDBACK</h1>
-    <h3>Let us know what you think about the website!</h3>
-    <!-- PAGE BODY-->
-    <form action="&feedback.php" method="POST">
 
-        <?php
-            // if the user is logged in we show the logout button, else we show the login/register buttons.
-            if (isset($_SESSION['id'])) {
-                $user_id = $_SESSION['id'];
-                $sql = "SELECT name, email FROM users WHERE id=$user_id;";
-                $user = $connection->query($sql)->fetch_assoc();
-                $name = $user["name"];
-                $email = $user["email"];
-                echo   '<div>
-                            Full Name:&emsp;<input type="text" name="fname" value="'.$name.'"><br>
-                            Email:  &emsp;&emsp;&emsp;<input type="text" name="email" value="'.$email.'"><br>
-                        </div>';
 
-            }else{
-                echo   '<div>
-                            Full Name:&emsp;<input type="text" name="fname"><br>
-                            Email:  &emsp;&emsp;&emsp;<input type="text" name="email"><br>
-                        </div>';
-            }
-        ?>
-
-        <br>
-        <div>
-            <!--Team Radio Buttons-->
-            <h5>Please Select the Team you Would Like your Feedback to be Sent too:</h5>
-            <input type="radio" id="designTeamRadio" name="team" value=0>
-            <label for="designTeamRadio">Web Design Team</label><br>
-            <input type="radio" id="techTeamRadio" name="team" value=1>
-            <label for="techTeamRadio">Technical Support Team</label><br>
-            <input type="radio" id="marketingTeamRadio" name="team" value=2>
-            <label for="marketingTeamRadio">Marketing Team</label><br>
-            <input type="radio" id="merchTeamRadio" name="team" value=3>
-            <label for="merchTeamRadio">Merchandise and Shipping Team</label><br>
-        </div>
-        <br>
-        <div>
-            <h5>Subject:</h5> <input type="text" name="subject"><br>
-            <h5>Content:</h5><textarea name="message" rows="4" cols="75"></textarea><br>
-            <input type="submit">
-        </div>
-    </form>
 </body>
 </html>
