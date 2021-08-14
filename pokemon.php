@@ -1,3 +1,7 @@
+<?php
+require_once 'database.php';
+session_start();
+?>
 <!DOCTYPE html>
 <?php
 //Database connection information
@@ -71,13 +75,40 @@ if (!empty($_POST["pname"]) && empty($_POST["pid"])) {
     $input_error = true;
 }
 ?>
-<html>
-<head>
-    <title>Pokemon Information: <?php echo $displayedName ?></title>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Dexipedia, a student driven project">
+    <meta name="keywords" content="HTML, PHP, CSS, JavaScript, Bootstrap">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Information: <?php echo $displayedName ?></title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/pokeball.css">
+    <?php
+            if (isset($_SESSION['id'])) {
+                $user_id = $_SESSION['id'];
+                $sql = "SELECT colorScheme FROM colorChoice WHERE id=$user_id";
+                $res=$connection->query($sql);
+                $row=$res->fetch_assoc();
+                $value = $row['colorScheme'];
+
+                if($value == 2) {
+                    echo '<link rel="stylesheet" href="css/pkmn.css">';
+                }
+                elseif($value == 3) {
+                    echo '<link rel="stylesheet" href="css/pkmnpurp.css">';
+                }
+                elseif($value == 4) {
+                    echo '<link rel="stylesheet" href="css/pkmntan.css">';
+                }
+                else {
+                    echo '<link rel="stylesheet" href="css/pokeball.css">';
+                }
+            }
+            else {
+                echo '<link rel="stylesheet" href="css/pokeball.css">';
+            }
+        ?>
     <!-- Bootstrap javascript -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -105,15 +136,21 @@ if (!empty($_POST["pname"]) && empty($_POST["pid"])) {
             <li class="nav-item active">
                 <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Account
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <?php
-                // if the user is logged in we show the logout button, else we show the login/register buttons.
-                if (isset($_SESSION['id'])) {
-                    echo '<a class="nav-link" href="logout.php">Logout<span class="sr-only">(current)</span></a>';
-                } else {
-                    echo '<a class="nav-link" href="login.php">Login / Register<span class="sr-only">(current)</span></a>';
-                }
+                    // if the user is logged in we show the logout button, else we show the login/register buttons.
+                    if (isset($_SESSION['id'])) {
+                        echo '<a class="dropdown-item" href="logout.php">Logout<span class="sr-only">(current)</span></a>';
+                        echo '<a class="dropdown-item" href="settings.php">Settings</a>';
+                    } else {
+                        echo '<a class="dropdown-item" href="login.php">Login / Register<span class="sr-only">(current)</span></a>';
+                    }
                 ?>
+                </div>
             </li>
 
             <!-- Dropdown menu within the nav bar -->
@@ -134,8 +171,8 @@ if (!empty($_POST["pname"]) && empty($_POST["pid"])) {
                     More...
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">About</a>
-                    <a class="dropdown-item" href="#">Credit</a>
+                  <a class="dropdown-item" href="about.php">About</a>
+                  <a class="dropdown-item" href="credit.php">Credit</a>
                     <a class="dropdown-item" href="feedback.php">FeedBack</a>
                 </div>
             </li>
@@ -180,6 +217,17 @@ if (!empty($_POST["pname"]) && empty($_POST["pid"])) {
                 </td>
                 <td>
                     <?php echo "<label id='img'><img src=$frontSprite></label>"; ?>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="btn-div-center">
+                        <form action="save.php" method="POST" target="_self">
+                            <?php
+                            echo  "<button class='save btn btn-primary' name='pkmnId' value=". $displayedDexNum. "><object data='imgs/white_star.svg'></object></button>";
+                            ?>
+                        </form>
+                    </div>
                 </td>
             </tr>
         </table>

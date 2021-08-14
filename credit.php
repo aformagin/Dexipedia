@@ -4,14 +4,10 @@ session_start();
 ?>
 
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="description" content="Dexipedia, a student driven project">
-    <meta name="keywords" content="HTML, PHP, CSS, JavaScript, Bootstrap">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Dexipedia - A Pokemon encyclopedia</title>
-        
         <link rel="icon" href="imgs/dexipedia.png">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <?php
@@ -83,7 +79,7 @@ session_start();
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="favorites.php">Favourite Pokemon</a>
                             <a class="dropdown-item" href="dex.php">Pokedex</a>
-                            <a class="dropdown-item" href="minigame.php">Pokemon Minigames</a>
+                            <a class="dropdown-item" href="#">Pokemon Minigames</a>
                         </div>
                     </li>
 
@@ -107,17 +103,27 @@ session_start();
             </div>
         </nav>
         <!--End of Nav Bar-->
+
         <div class="spacing">
             <div class="container page-contents shadow-sm p-3 mb-5 bg-body rounded bg-light" style="padding: 2%;">
                 <description>
-                    <ul style="list-style-type:none;">
-                        <li><h3>About Us</h3><hr><p>Our website is a Pokémon information catalogue based on the popular
-                        series of Pokémon games. We have created various pages such as Pokedex, Favourites, and FeedBack accessible to you through the navigation bar. These pages and more offer you information on the game mechanics and valuable information on each Pokémon. Our Pokedex is a great place to start to find out about some amazing Pokémon.<br> Learn a little bit more here: <a href="about.php" >About Us</a></p></li>
-                        <li><h3>Pokedex</h3><hr><p>Search for your favourites! <a href="dex.php" >Pokedex</a></p></li>
-                        <li><h3>FeedBack</h3><hr><p>Lets us know what you think about our website: <a href="feedback.php">Feedback</a></p></li>
+                       <ul style="list-style-type:none;">
+                        <li> <h3>Credits</h3><hr>
+                          <p>  Team 21: Austin Formagin, Angel Veliz Castro, Rebecca Wallace, Julia Garant, Matthew Belanger <b>(We do not own the rights to Pokemon)</b></p>
+
+
+              						<p>	<a href="https://pokeapi.co/" target="_blank">PokeAPI</a></p>
+              						<p>	<a href="https://getbootstrap.com/" target="_blank">Bootstrap</a></p>
+              						<p>	<a href="https://www.pokemon.com/us/" target="_blank">Official Pokemon Website</a></p>
+							
+
+
+
+
+                        </li>
                     </ul>
                 </description>
             </div>
         </div>
-    </body>
+      </body>
 </html>

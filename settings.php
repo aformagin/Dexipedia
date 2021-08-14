@@ -1,6 +1,36 @@
 <?php
+//Call the file with the database info
 require_once 'database.php';
 session_start();
+//Start a session and check if the user is logged in, if not send them to the login page with an error message
+if (!isset($_SESSION['id'])) {
+    $_SESSION['error'] = 'Please login or register to access the settings page';
+    header("Location: login.php");
+    exit();
+}
+
+//Used to delete the user from the user table
+if(isset($_POST['delete_user'])) {
+    $user_id = $_SESSION['id'];
+    $connection->query("DELETE FROM users WHERE id = '$user_id'");
+    require_once 'logout.php';
+    header("Location: index.php");
+    exit();
+}
+
+//Used to change the users color shceme preferrence
+if(isset($_POST['colorChoice'])) {
+    $user_id = $_SESSION['id'];
+    $choice = $_POST['colorlist'];
+    $result = $connection->query("SELECT colorScheme FROM colorChoice WHERE id=$user_id");
+    //If the user has already selected a color shceme, update the value instead of trying ot insert
+    if (mysqli_num_rows($result) > 0) {
+        $connection->query("UPDATE colorChoice SET colorScheme=$choice WHERE id=$user_id");
+        header("Location: settings.php");
+    }   
+    $connection->query("INSERT INTO colorChoice (`id`, `colorScheme`) VALUES ('$user_id', '$choice')");
+    header("Location: settings.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -10,8 +40,8 @@ session_start();
     <meta name="description" content="Dexipedia, a student driven project">
     <meta name="keywords" content="HTML, PHP, CSS, JavaScript, Bootstrap">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Dexipedia - A Pokemon encyclopedia</title>
-        
+        <title>Dexipedia - Account Settings</title>
+
         <link rel="icon" href="imgs/dexipedia.png">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <?php
@@ -83,7 +113,7 @@ session_start();
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="favorites.php">Favourite Pokemon</a>
                             <a class="dropdown-item" href="dex.php">Pokedex</a>
-                            <a class="dropdown-item" href="minigame.php">Pokemon Minigames</a>
+                            <a class="dropdown-item" href="#">Pokemon Minigames</a>
                         </div>
                     </li>
 
@@ -109,14 +139,36 @@ session_start();
         <!--End of Nav Bar-->
         <div class="spacing">
             <div class="container page-contents shadow-sm p-3 mb-5 bg-body rounded bg-light" style="padding: 2%;">
-                <description>
-                    <ul style="list-style-type:none;">
-                        <li><h3>About Us</h3><hr><p>Our website is a Pokémon information catalogue based on the popular
-                        series of Pokémon games. We have created various pages such as Pokedex, Favourites, and FeedBack accessible to you through the navigation bar. These pages and more offer you information on the game mechanics and valuable information on each Pokémon. Our Pokedex is a great place to start to find out about some amazing Pokémon.<br> Learn a little bit more here: <a href="about.php" >About Us</a></p></li>
-                        <li><h3>Pokedex</h3><hr><p>Search for your favourites! <a href="dex.php" >Pokedex</a></p></li>
-                        <li><h3>FeedBack</h3><hr><p>Lets us know what you think about our website: <a href="feedback.php">Feedback</a></p></li>
-                    </ul>
-                </description>
+                <div style="text-align: center">
+                    <h3>Change your account theme:</h3>
+                </div>
+                <div class="btn-div-center">
+                    <form method="post" action="">
+                        <label for="colors">Choose a theme:</label>
+                        <select name="colorlist" id="color">
+                            <option value="1">Poke Ball</option>
+                            <option value="2">Snorlax</option>
+                            <option value="3">Ghastly</option>
+                            <option value="4">Pikachu and Eevee</option>
+                        </select>
+                        <button class="btn btn-primary" type="submit" name="colorChoice">Select</button>
+                    </form>
+                </div>
+
+                <form style="margin-top: 1%" method="post" action="">
+                    <div style="text-align: center">
+                        <h3>Delete your account below</h3>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>WARNING</strong> This action can <strong>NOT</strong> be undone
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="btn-div-center">
+                        <button class="btn btn-danger" type="submit" name="delete_user"  style="font-weight: bolder">Delete Account</button>
+                    </div>
+                </form>
             </div>
         </div>
     </body>

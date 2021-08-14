@@ -28,7 +28,7 @@ if (!empty($_POST['pid'])) {
     $displayedName = ucfirst($responseArray[0]);
     $displayedDexNum = $responseArray[2];
     $frontSprite = $responseArray[1];
-    echo "<table class='table table-responsive shadow p-3 mb-5 bg-body' style='border: solid 2px; border-color: black;'>";
+    echo "<table class='table table-responsive shadow p-3 mb-5 bg-body' style='border: 2px solid black;'>";
     echo "<tr><th class='table-dark' colspan=2><label></label>";
     echo "#$displayedDexNum - $displayedName</th>";
     echo "</tr><tr><td><label>Name</label></td><td>";
