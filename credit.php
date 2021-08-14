@@ -79,7 +79,6 @@ session_start();
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="favorites.php">Favourite Pokemon</a>
                             <a class="dropdown-item" href="dex.php">Pokedex</a>
-                            <a class="dropdown-item" href="#">Pokemon Minigames</a>
                         </div>
                     </li>
 
@@ -115,7 +114,7 @@ session_start();
               						<p>	<a href="https://pokeapi.co/" target="_blank">PokeAPI</a></p>
               						<p>	<a href="https://getbootstrap.com/" target="_blank">Bootstrap</a></p>
               						<p>	<a href="https://www.pokemon.com/us/" target="_blank">Official Pokemon Website</a></p>
-							
+
 
 
 
