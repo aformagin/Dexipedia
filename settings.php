@@ -27,7 +27,7 @@ if(isset($_POST['colorChoice'])) {
     if (mysqli_num_rows($result) > 0) {
         $connection->query("UPDATE colorChoice SET colorScheme=$choice WHERE id=$user_id");
         header("Location: settings.php");
-    }   
+    }
     $connection->query("INSERT INTO colorChoice (`id`, `colorScheme`) VALUES ('$user_id', '$choice')");
     header("Location: settings.php");
 }
@@ -113,7 +113,6 @@ if(isset($_POST['colorChoice'])) {
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="favorites.php">Favourite Pokemon</a>
                             <a class="dropdown-item" href="dex.php">Pokedex</a>
-                            <a class="dropdown-item" href="#">Pokemon Minigames</a>
                         </div>
                     </li>
 
