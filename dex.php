@@ -86,6 +86,7 @@ session_start();
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="favorites.php">Favourite Pokemon</a>
                     <a class="dropdown-item" href="dex.php">Pokedex</a>
+
                 </div>
             </li>
 
